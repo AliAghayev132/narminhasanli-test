@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Əlaqə & Rezervasiya — Nərmin Həsənli</title>
+<meta name="description" content="Səyahətə bu gün başlayaq. Fərdi seans üçün rezervasiya və əlaqə.">
+<meta property="og:title" content="Əlaqə & Rezervasiya — Nərmin Həsənli">
+<meta property="og:description" content="Səyahətə bu gün başlayaq. Fərdi seans üçün rezervasiya və əlaqə.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f3ede1'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23ad8649' stroke-width='2' opacity='.5'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23ad8649'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#f3ede1}
+  ::selection{background:rgba(173,134,73,.25);color:#312a38}
+  ::-webkit-scrollbar{width:9px}
+  ::-webkit-scrollbar-track{background:#ece1ce}
+  ::-webkit-scrollbar-thumb{background:#d8c6a6;border-radius:9px}
+  @keyframes nh-drift-a{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-50px)}}
+  @keyframes nh-drift-b{0%,100%{transform:translate(0,0)}50%{transform:translate(-70px,40px)}}
+  input::placeholder,textarea::placeholder{color:#a89e92}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:rgba(160,120,56,.55)!important}
+  [data-reveal]{opacity:1}
+  @media(max-width:920px){
+    .nh-navlinks{display:none!important}
+    .nh-burger{display:flex!important}
+    .nh-contact-grid{grid-template-columns:1fr!important}
+  }
+  @media(max-width:560px){ .nh-form{grid-template-columns:1fr!important} }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="position:relative;min-height:100vh;background:radial-gradient(150% 125% at 50% -10%, #fdfaf3 0%, #f4ecdd 48%, #ece1cd 100%);color:#3a3340;font-family:'Manrope',sans-serif;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased">
+
+  <canvas ref="{{ canvasRef }}" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
+  <div style="position:fixed;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle, rgba(212,150,192,.30), rgba(176,146,214,.14) 45%, transparent 70%);filter:blur(20px);top:-180px;left:-120px;z-index:0;pointer-events:none;animation:nh-drift-a 22s ease-in-out infinite"></div>
+  <div style="position:fixed;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle, rgba(184,142,72,.18), rgba(176,146,214,.08) 50%, transparent 70%);filter:blur(20px);bottom:-220px;right:-160px;z-index:0;pointer-events:none;animation:nh-drift-b 26s ease-in-out infinite"></div>
+  <div ref="{{ auraRef }}" style="position:fixed;top:0;left:0;width:480px;height:480px;margin:-240px 0 0 -240px;border-radius:50%;background:radial-gradient(circle, rgba(184,142,72,.18), transparent 60%);mix-blend-mode:multiply;pointer-events:none;z-index:1;transition:transform .25s ease-out;will-change:transform"></div>
+
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,5vw,64px);backdrop-filter:blur(12px);background:linear-gradient(to bottom, rgba(247,240,224,.9), rgba(247,240,224,0));">
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#3a3340">
+      <span style="width:38px;height:38px;border:1px solid rgba(160,120,56,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:20px;color:#ad8649;letter-spacing:1px">N</span>
+      <span style="font-family:'Lora',serif;font-size:22px;letter-spacing:.5px">Nərmin Həsənli</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:34px" class="nh-navlinks">
+      <a href="index.html#about" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Haqqımda</a>
+      <a href="index.html#sessions" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Seanslar</a>
+      <a href="derslar.html" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Dərslər</a>
+      <a href="bloglar.html" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Bloglar</a>
+      <a href="elaqe.html" style="text-decoration:none;color:#2c2530;background:#ad8649;padding:10px 22px;border-radius:40px;font-size:14px;letter-spacing:.5px" style-hover="background:#c29a55">Rezervasiya</a>
+    </div>
+    <button onClick="{{ toggleMenu }}" aria-label="Menyu" style="display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px" class="nh-burger">
+      <span style="width:24px;height:1.5px;background:#ad8649;display:block"></span>
+      <span style="width:24px;height:1.5px;background:#ad8649;display:block"></span>
+      <span style="width:24px;height:1.5px;background:#ad8649;display:block"></span>
+    </button>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;top:78px;left:16px;right:16px;z-index:29;display:flex;flex-direction:column;gap:6px;padding:18px;background:rgba(252,247,237,.97);backdrop-filter:blur(16px);border:1px solid rgba(160,120,56,.2);border-radius:18px">
+      <a href="index.html#about" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Haqqımda</a>
+      <a href="index.html#sessions" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Seanslar</a>
+      <a href="derslar.html" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Dərslər</a>
+      <a href="bloglar.html" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Bloglar</a>
+      <a href="elaqe.html" style="text-decoration:none;color:#ad8649;padding:12px 8px;font-size:17px">Rezervasiya</a>
+    </div>
+  </sc-if>
+
+  <!-- PAGE HERO -->
+  <header style="position:relative;z-index:2;padding:170px 20px 20px;text-align:center;max-width:760px;margin:0 auto">
+    <div data-reveal>
+      <p style="font-size:13px;letter-spacing:5px;text-transform:uppercase;color:#ad8649;margin-bottom:24px">✦ &nbsp;Əlaqə & Rezervasiya&nbsp; ✦</p>
+      <h1 style="font-family:'Lora',serif;font-weight:700;font-size:clamp(38px,6.5vw,72px);line-height:1.06;color:#312a38">Səyahətə bu gün başlayaq</h1>
+      <p style="max-width:520px;margin:22px auto 0;font-size:clamp(16px,2.2vw,19px);line-height:1.75;color:#4c4459">İlk addım sadəcə bir salamdır. Formu doldur və ya birbaşa mənə yaz — 24 saat ərzində cavab verəcəyəm.</p>
+    </div>
+  </header>
+
+  <!-- CONTACT GRID -->
+  <section style="position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:clamp(30px,5vw,60px) clamp(20px,5vw,40px)">
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start" class="nh-contact-grid">
+
+      <!-- FORM -->
+      <div data-reveal style="border-radius:26px;border:1px solid rgba(160,120,56,.2);background:linear-gradient(160deg, rgba(255,255,255,.88), rgba(249,241,227,.74));backdrop-filter:blur(10px);padding:clamp(28px,4vw,44px);position:relative;overflow:hidden">
+        <div style="position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(160,120,56,.14),transparent 70%);top:-120px;right:-80px;pointer-events:none"></div>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:50px 20px">
+            <div style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(160,120,56,.5);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:28px;color:#ad8649">✦</div>
+            <h3 style="font-family:'Lora',serif;font-size:30px;color:#312a38;margin-bottom:10px">Təşəkkür edirəm, {{ sentName }}</h3>
+            <p style="font-size:16px;color:#4c4459;line-height:1.7;max-width:360px;margin:0 auto">Mesajın mənə çatdı. Tezliklə şəxsən cavab yazacağam. Bu vaxta qədər dərin bir nəfəs al. ✶</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="display:grid;grid-template-columns:1fr 1fr;gap:18px" class="nh-form">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label style="font-size:13px;letter-spacing:1px;color:#6a6178">Adın</label>
+              <input value="{{ name }}" onChange="{{ onName }}" placeholder="Adını yaz" style="background:rgba(255,255,255,.7);border:1px solid rgba(160,120,56,.22);border-radius:12px;padding:14px 16px;color:#3a3340;font-family:'Manrope',sans-serif;font-size:15px"></input>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label style="font-size:13px;letter-spacing:1px;color:#6a6178">E-poçt</label>
+              <input value="{{ email }}" onChange="{{ onEmail }}" type="email" placeholder="sen@nümunə.az" style="background:rgba(255,255,255,.7);border:1px solid rgba(160,120,56,.22);border-radius:12px;padding:14px 16px;color:#3a3340;font-family:'Manrope',sans-serif;font-size:15px"></input>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1">
+              <label style="font-size:13px;letter-spacing:1px;color:#6a6178">Mövzu</label>
+              <select value="{{ topic }}" onChange="{{ onTopic }}" style="background:rgba(255,255,255,.7);border:1px solid rgba(160,120,56,.22);border-radius:12px;padding:14px 16px;color:#3a3340;font-family:'Manrope',sans-serif;font-size:15px;appearance:none">
+                <sc-for list="{{ topics }}" as="t" hint-placeholder-count="5">
+                  <option value="{{ t }}" style="background:#fff">{{ t }}</option>
+                </sc-for>
+              </select>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1">
+              <label style="font-size:13px;letter-spacing:1px;color:#6a6178">Mesajın</label>
+              <textarea value="{{ message }}" onChange="{{ onMessage }}" rows="5" placeholder="Ürəyindən keçəni paylaş..." style="background:rgba(255,255,255,.7);border:1px solid rgba(160,120,56,.22);border-radius:12px;padding:14px 16px;color:#3a3340;font-family:'Manrope',sans-serif;font-size:15px;resize:vertical"></textarea>
+            </div>
+            <button type="submit" style="grid-column:1/-1;justify-self:start;margin-top:6px;background:#ad8649;color:#2c2530;border:none;border-radius:44px;padding:16px 44px;font-family:'Manrope',sans-serif;font-size:15px;letter-spacing:1px;cursor:pointer" style-hover="background:#c29a55">Göndər ✦</button>
+          </form>
+        </sc-if>
+      </div>
+
+      <!-- INFO -->
+      <div data-reveal style="display:flex;flex-direction:column;gap:16px">
+        <sc-for list="{{ channels }}" as="ch" hint-placeholder-count="4">
+          <div style="display:flex;gap:16px;align-items:center;padding:20px;border-radius:18px;border:1px solid rgba(160,120,56,.16);background:rgba(255,255,255,.62)">
+            <div style="width:46px;height:46px;flex-shrink:0;border-radius:50%;border:1px solid rgba(160,120,56,.4);display:flex;align-items:center;justify-content:center;font-size:20px;color:#ad8649">{{ ch.icon }}</div>
+            <div>
+              <p style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6a6178;margin-bottom:3px">{{ ch.label }}</p>
+              <p style="font-size:16px;color:#3a3340">{{ ch.value }}</p>
+            </div>
+          </div>
+        </sc-for>
+        <div style="padding:22px;border-radius:18px;border:1px solid rgba(160,120,56,.16);background:rgba(255,255,255,.62)">
+          <p style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6a6178;margin-bottom:10px">İş saatları</p>
+          <p style="font-size:15px;line-height:1.8;color:#4a4350">Bazar ertəsi – Cümə: 10:00 – 19:00<br>Şənbə: 11:00 – 15:00<br>Bazar: istirahət</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="position:relative;z-index:2;max-width:760px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(20px,5vw,40px)">
+    <div data-reveal style="text-align:center;margin-bottom:40px">
+      <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#ad8649;margin-bottom:14px">Tez-tez verilən suallar</p>
+      <h2 style="font-family:'Lora',serif;font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.1;color:#312a38">Ağlında sual var?</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <div data-reveal style="padding:24px 26px;border-radius:18px;border:1px solid rgba(160,120,56,.16);background:rgba(255,255,255,.6)">
+          <h3 style="font-family:'Lora',serif;font-weight:700;font-size:22px;color:#312a38;margin-bottom:10px">{{ f.q }}</h3>
+          <p style="font-size:15px;line-height:1.8;color:#554d61">{{ f.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative;z-index:2;border-top:1px solid rgba(70,48,30,.10);padding:54px clamp(20px,5vw,40px) 40px;text-align:center">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
+      <span style="width:36px;height:36px;border:1px solid rgba(160,120,56,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:18px;color:#ad8649">N</span>
+      <span style="font-family:'Lora',serif;font-size:22px;color:#3a3340">Nərmin Həsənli</span>
+    </div>
+    <p style="font-family:'Lora',serif;font-style:italic;font-size:19px;color:#4c4459;margin-bottom:24px">"İçindəki sükuta qulaq as — bütün cavablar oradadır."</p>
+    <div style="display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-bottom:26px">
+      <a href="index.html#about" style="text-decoration:none;color:#6a6178;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Haqqımda</a>
+      <a href="index.html#sessions" style="text-decoration:none;color:#6a6178;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Seanslar</a>
+      <a href="derslar.html" style="text-decoration:none;color:#6a6178;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Dərslər</a>
+      <a href="bloglar.html" style="text-decoration:none;color:#6a6178;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Bloglar</a>
+      <a href="elaqe.html" style="text-decoration:none;color:#6a6178;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Əlaqə</a>
+    </div>
+    <p style="font-size:13px;color:#9a8f82;letter-spacing:.5px">© 2026 Nərmin Həsənli · Sevgi və işıqla hazırlanıb ✶</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  canvasRef = React.createRef();
+  auraRef = React.createRef();
+  state = { menuOpen:false, name:'', email:'', topic:'Ruhi Bələdçilik Seansı', message:'', sent:false, sentName:'' };
+  async componentDidMount(){
+    try { const m = await import('./nh-fx.js'); m.initFX(this.rootRef.current, this.canvasRef.current, this.auraRef.current); } catch(e){ console.error(e); }
+  }
+  renderVals(){
+    const set = (k)=>(e)=>this.setState({[k]: e.target.value});
+    return {
+      rootRef:this.rootRef, canvasRef:this.canvasRef, auraRef:this.auraRef,
+      menuOpen:this.state.menuOpen,
+      toggleMenu:()=>this.setState(s=>({menuOpen:!s.menuOpen})),
+      closeMenu:()=>this.setState({menuOpen:false}),
+      topics:['Ruhi Bələdçilik Seansı','Enerji Təmizlənməsi','Daxili Uşaqla Görüş','Kurs haqqında sual','Digər'],
+      name:this.state.name, email:this.state.email, topic:this.state.topic, message:this.state.message,
+      onName:set('name'), onEmail:set('email'), onTopic:set('topic'), onMessage:set('message'),
+      sent:this.state.sent, notSent:!this.state.sent, sentName:this.state.sentName || 'əziz ruh',
+      onSubmit:(e)=>{ e.preventDefault(); this.setState({sent:true, sentName:(this.state.name||'').trim() || 'əziz ruh'}); },
+      channels:[
+        {icon:'✉', label:'E-poçt', value:'salam@nerminhesenli.az'},
+        {icon:'☎', label:'Telefon / WhatsApp', value:'+994 50 000 00 00'},
+        {icon:'✦', label:'Instagram', value:'@nermin.hesenli'},
+        {icon:'☾', label:'Məkan', value:'Bakı · Onlayn seanslar'}
+      ],
+      faqs:[
+        {q:'Seanslar onlayn keçirilir?', a:'Bəli, seanslarımın böyük hissəsi Zoom vasitəsilə onlayn keçirilir. Bakıda üzbəüz görüş də mümkündür — formda qeyd et.'},
+        {q:'İlk görüş üçün necə hazırlaşım?', a:'Heç bir hazırlıq lazım deyil. Sadəcə sakit bir yer və özünə bir az vaxt kifayətdir. Qalan hər şeyi birlikdə edəcəyik.'},
+        {q:'Ödəniş necə aparılır?', a:'Görüş təsdiqləndikdən sonra kart və ya köçürmə ilə ödəniş linki göndərilir.'},
+        {q:'Fikrimi dəyişsəm, ləğv edə bilərəm?', a:'Əlbəttə. Görüşdən 24 saat əvvələ qədər pulsuz ləğv və ya təxirə salma mümkündür.'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

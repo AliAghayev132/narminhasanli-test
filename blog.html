@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Sükutun içindəki səs — Nərmin Həsənli</title>
+<meta name="description" content="Özünlə barışığa gedən yol: sadə bir gündəlik sükut praktikası.">
+<meta property="og:title" content="Sükutun içindəki səs — Nərmin Həsənli">
+<meta property="og:description" content="Özünlə barışığa gedən yol: sadə bir gündəlik sükut praktikası.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f3ede1'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23ad8649' stroke-width='2' opacity='.5'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23ad8649'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#f3ede1}
+  ::selection{background:rgba(173,134,73,.25);color:#312a38}
+  ::-webkit-scrollbar{width:9px}
+  ::-webkit-scrollbar-track{background:#ece1ce}
+  ::-webkit-scrollbar-thumb{background:#d8c6a6;border-radius:9px}
+  @keyframes nh-drift-a{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-50px)}}
+  @keyframes nh-drift-b{0%,100%{transform:translate(0,0)}50%{transform:translate(-70px,40px)}}
+  [data-reveal]{opacity:1}
+  @media(max-width:860px){
+    .nh-navlinks{display:none!important}
+    .nh-burger{display:flex!important}
+    .nh-cards-3{grid-template-columns:1fr!important}
+  }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="position:relative;min-height:100vh;background:radial-gradient(150% 125% at 50% -10%, #fdfaf3 0%, #f4ecdd 48%, #ece1cd 100%);color:#3a3340;font-family:'Manrope',sans-serif;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased">
+
+  <canvas ref="{{ canvasRef }}" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
+  <div style="position:fixed;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle, rgba(212,150,192,.30), rgba(176,146,214,.14) 45%, transparent 70%);filter:blur(20px);top:-180px;left:-120px;z-index:0;pointer-events:none;animation:nh-drift-a 22s ease-in-out infinite"></div>
+  <div style="position:fixed;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle, rgba(184,142,72,.18), rgba(176,146,214,.08) 50%, transparent 70%);filter:blur(20px);bottom:-220px;right:-160px;z-index:0;pointer-events:none;animation:nh-drift-b 26s ease-in-out infinite"></div>
+  <div ref="{{ auraRef }}" style="position:fixed;top:0;left:0;width:480px;height:480px;margin:-240px 0 0 -240px;border-radius:50%;background:radial-gradient(circle, rgba(184,142,72,.18), transparent 60%);mix-blend-mode:multiply;pointer-events:none;z-index:1;transition:transform .25s ease-out;will-change:transform"></div>
+
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,5vw,64px);backdrop-filter:blur(12px);background:linear-gradient(to bottom, rgba(247,240,224,.9), rgba(247,240,224,0));">
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#3a3340">
+      <span style="width:38px;height:38px;border:1px solid rgba(160,120,56,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:20px;color:#ad8649;letter-spacing:1px">N</span>
+      <span style="font-family:'Lora',serif;font-size:22px;letter-spacing:.5px">Nərmin Həsənli</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:34px" class="nh-navlinks">
+      <a href="index.html#about" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Haqqımda</a>
+      <a href="index.html#sessions" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Seanslar</a>
+      <a href="derslar.html" style="text-decoration:none;color:#5e5669;font-size:15px;letter-spacing:.5px" style-hover="color:#ad8649">Dərslər</a>
+      <a href="bloglar.html" style="text-decoration:none;color:#ad8649;font-size:15px;letter-spacing:.5px">Bloglar</a>
+      <a href="elaqe.html" style="text-decoration:none;color:#2c2530;background:#ad8649;padding:10px 22px;border-radius:40px;font-size:14px;letter-spacing:.5px" style-hover="background:#c29a55">Rezervasiya</a>
+    </div>
+    <button onClick="{{ toggleMenu }}" aria-label="Menyu" style="display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px" class="nh-burger">
+      <span style="width:24px;height:1.5px;background:#ad8649;display:block"></span>
+      <span style="width:24px;height:1.5px;background:#ad8649;display:block"></span>
+      <span style="width:24px;height:1.5px;background:#ad8649;display:block"></span>
+    </button>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;top:78px;left:16px;right:16px;z-index:29;display:flex;flex-direction:column;gap:6px;padding:18px;background:rgba(252,247,237,.97);backdrop-filter:blur(16px);border:1px solid rgba(160,120,56,.2);border-radius:18px">
+      <a href="index.html#about" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Haqqımda</a>
+      <a href="index.html#sessions" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Seanslar</a>
+      <a href="derslar.html" style="text-decoration:none;color:#3a3340;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Dərslər</a>
+      <a href="bloglar.html" style="text-decoration:none;color:#ad8649;padding:12px 8px;font-size:17px;border-bottom:1px solid rgba(70,48,30,.09)">Bloglar</a>
+      <a href="elaqe.html" style="text-decoration:none;color:#ad8649;padding:12px 8px;font-size:17px">Rezervasiya</a>
+    </div>
+  </sc-if>
+
+  <!-- ARTICLE HEADER -->
+  <article style="position:relative;z-index:2;max-width:760px;margin:0 auto;padding:150px clamp(20px,5vw,40px) 0">
+    <div data-reveal style="text-align:center;margin-bottom:36px">
+      <a href="bloglar.html" style="text-decoration:none;font-size:13px;letter-spacing:1px;color:#837a8c;display:inline-block;margin-bottom:22px" style-hover="color:#ad8649">← Bütün yazılar</a>
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:20px">
+        <span style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#2c2530;background:#ad8649;padding:5px 12px;border-radius:20px">Rituallar</span>
+        <span style="font-size:13px;color:#837a8c">18 İyun 2026 · 6 dəq oxu</span>
+      </div>
+      <h1 style="font-family:'Lora',serif;font-weight:700;font-size:clamp(32px,5.5vw,58px);line-height:1.12;color:#312a38">Sükutun içindəki səs: özünlə barışığa gedən yol</h1>
+    </div>
+    <div data-reveal style="height:clamp(220px,38vw,380px);border-radius:24px;background-image:repeating-linear-gradient(135deg,#efe5d2 0 16px,#e7dcc6 16px 32px);border:1px solid rgba(160,120,56,.2);display:flex;align-items:center;justify-content:center;margin-bottom:44px">
+      <span style="font-family:'Manrope',monospace;font-size:12px;letter-spacing:1px;color:#837a8c;background:rgba(255,255,255,.62);padding:6px 14px;border-radius:18px">yazı üçün əsas görsel</span>
+    </div>
+
+    <!-- BODY -->
+    <div data-reveal style="font-size:18px;line-height:1.95;color:#3a3446">
+      <p style="margin-bottom:24px">Bəzən ən güclü cavab heç bir söz deyil. Gündəlik həyatın səs-küyü içində biz o qədər çox danışırıq, dinləyirik, oxuyuruq ki, öz daxili səsimizi eşitməyi tamamilə unuduruq. Bu yazıda səni sükutla yenidən dostlaşmağa dəvət edirəm.</p>
+      <p style="margin-bottom:24px">Sükut boşluq deyil. Əksinə, o, ən dolu andır — orada intuisiyanın, bədəninin və ruhunun sənə pıçıldadığı hər şey var. Sadəcə eşitmək üçün bir az yavaşlamaq lazımdır.</p>
+
+      <h2 style="font-family:'Lora',serif;font-weight:700;font-size:32px;color:#312a38;margin:40px 0 18px">Niyə sükutdan qorxuruq?</h2>
+      <p style="margin-bottom:24px">Çünki sükutda ilk növbədə həll etmədiyimiz hisslər üzə çıxır. Narahatlıq, kədər, həll olunmamış suallar... Amma məhz onlara şəfqətlə baxmaq sağalmanın başlanğıcıdır. Qaçmaq yox — qucaqlamaq.</p>
+
+      <blockquote style="margin:36px 0;padding:24px 30px;border-left:3px solid #ad8649;background:rgba(255,255,255,.5);border-radius:0 16px 16px 0;font-family:'Lora',serif;font-style:italic;font-size:24px;line-height:1.5;color:#312a38">"Sükut, ruhun öz-özünə qayıtdığı evdir."</blockquote>
+
+      <h2 style="font-family:'Lora',serif;font-weight:700;font-size:32px;color:#312a38;margin:40px 0 18px">Sadə bir gündəlik sükut praktikası</h2>
+      <p style="margin-bottom:16px">Bu praktika cəmi 5 dəqiqə çəkir və heç bir təcrübə tələb etmir:</p>
+      <ul style="margin:0 0 24px;padding-left:4px;list-style:none">
+        <li style="display:flex;gap:12px;margin-bottom:14px"><span style="color:#ad8649">✦</span><span>Sakit bir yerdə otur, gözlərini yum və yalnız nəfəsini izlə.</span></li>
+        <li style="display:flex;gap:12px;margin-bottom:14px"><span style="color:#ad8649">✦</span><span>Fikirlər gələndə onları qınamadan buraxıb yenidən nəfəsə qayıt.</span></li>
+        <li style="display:flex;gap:12px;margin-bottom:14px"><span style="color:#ad8649">✦</span><span>Bitirməzdən əvvəl özünə bir cümlə de: "Mən buradayam və bu kifayətdir."</span></li>
+      </ul>
+      <p style="margin-bottom:24px">Bunu hər gün eyni vaxtda təkrarla. Bir həftə sonra fərqi özün hiss edəcəksən — daxili səsin daha aydın, reaksiyaların daha sakit olacaq.</p>
+      <p>Unutma: sükut bir mənzil deyil, bir təcrübədir. Ona hər gün bir az qayıtdıqca, o sənin ən etibarlı sığınacağına çevriləcək. ✶</p>
+    </div>
+
+    <!-- AUTHOR -->
+    <div data-reveal style="display:flex;gap:20px;align-items:center;margin:50px 0;padding:28px;border-radius:22px;border:1px solid rgba(160,120,56,.18);background:linear-gradient(160deg, rgba(255,255,255,.82), rgba(249,241,227,.7))">
+      <div style="width:70px;height:70px;flex-shrink:0;border-radius:50%;border:1px solid rgba(160,120,56,.4);background-image:repeating-linear-gradient(135deg,#efe5d2 0 10px,#e7dcc6 10px 20px)"></div>
+      <div>
+        <p style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#ad8649;margin-bottom:6px">Müəllif</p>
+        <h3 style="font-family:'Lora',serif;font-weight:700;font-size:24px;color:#312a38;margin-bottom:6px">Nərmin Həsənli</h3>
+        <p style="font-size:15px;line-height:1.6;color:#554d61">Həyat koçu və ruhani bələdçi. Sükut, nəfəs və özünütanıma haqqında yazır.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RELATED -->
+  <section style="position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:clamp(30px,5vw,50px) clamp(20px,5vw,40px) clamp(50px,8vw,90px)">
+    <div data-reveal style="text-align:center;margin-bottom:40px">
+      <p style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#ad8649;margin-bottom:14px">Oxumağa davam et</p>
+      <h2 style="font-family:'Lora',serif;font-weight:700;font-size:clamp(26px,4vw,42px);line-height:1.1;color:#312a38">Bənzər yazılar</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="nh-cards-3">
+      <sc-for list="{{ related }}" as="b" hint-placeholder-count="3">
+        <a data-reveal href="blog.html" style="text-decoration:none;display:block;border-radius:22px;overflow:hidden;border:1px solid rgba(160,120,56,.14);background:rgba(255,255,255,.78);box-shadow:0 16px 44px rgba(120,92,50,.12);transition:transform .4s ease,box-shadow .35s ease,border-color .4s ease" style-hover="transform:translateY(-8px);border-color:rgba(160,120,56,.45)">
+          <div style="height:150px;background-image:repeating-linear-gradient(150deg,#efe5d2 0 16px,#e7dcc6 16px 32px);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:'Manrope',monospace;font-size:11px;letter-spacing:1px;color:#837a8c;background:rgba(255,255,255,.62);padding:5px 10px;border-radius:16px">blog görseli</span>
+          </div>
+          <div style="padding:24px 22px">
+            <span style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ad8649">{{ b.cat }}</span>
+            <h3 style="font-family:'Lora',serif;font-weight:700;font-size:22px;line-height:1.25;color:#312a38;margin:10px 0 0">{{ b.title }}</h3>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative;z-index:2;border-top:1px solid rgba(70,48,30,.10);padding:54px clamp(20px,5vw,40px) 40px;text-align:center">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
+      <span style="width:36px;height:36px;border:1px solid rgba(160,120,56,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:18px;color:#ad8649">N</span>
+      <span style="font-family:'Lora',serif;font-size:22px;color:#3a3340">Nərmin Həsənli</span>
+    </div>
+    <p style="font-family:'Lora',serif;font-style:italic;font-size:19px;color:#4c4459;margin-bottom:24px">"İçindəki sükuta qulaq as — bütün cavablar oradadır."</p>
+    <div style="display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-bottom:26px">
+      <a href="index.html#about" style="text-decoration:none;color:#837a8c;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Haqqımda</a>
+      <a href="index.html#sessions" style="text-decoration:none;color:#837a8c;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Seanslar</a>
+      <a href="derslar.html" style="text-decoration:none;color:#837a8c;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Dərslər</a>
+      <a href="bloglar.html" style="text-decoration:none;color:#837a8c;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Bloglar</a>
+      <a href="elaqe.html" style="text-decoration:none;color:#837a8c;font-size:14px;letter-spacing:.5px" style-hover="color:#ad8649">Əlaqə</a>
+    </div>
+    <p style="font-size:13px;color:#9a8f82;letter-spacing:.5px">© 2026 Nərmin Həsənli · Sevgi və işıqla hazırlanıb ✶</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  canvasRef = React.createRef();
+  auraRef = React.createRef();
+  state = { menuOpen:false };
+  async componentDidMount(){
+    try { const m = await import('./nh-fx.js'); m.initFX(this.rootRef.current, this.canvasRef.current, this.auraRef.current); } catch(e){ console.error(e); }
+  }
+  renderVals(){
+    return {
+      rootRef:this.rootRef, canvasRef:this.canvasRef, auraRef:this.auraRef,
+      menuOpen:this.state.menuOpen,
+      toggleMenu:()=>this.setState(s=>({menuOpen:!s.menuOpen})),
+      closeMenu:()=>this.setState({menuOpen:false}),
+      related:[
+        {cat:'Meditasiya', title:'Nəfəsin gücü: sakitliyə gedən yol'},
+        {cat:'Astrologiya', title:'Ay təqvimi ilə niyyət qurmaq'},
+        {cat:'Özünütanıma', title:'Daxili uşağınla yenidən tanış ol'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
