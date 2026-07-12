@@ -1,0 +1,17 @@
+{
+  "name": "narminhasanli",
+  "private": true,
+  "description": "Convenience scripts to run server/ and client-next/ together. Not a pnpm workspace -- each package still has its own node_modules/.env.",
+  "scripts": {
+    "install:all": "pnpm --dir server install && pnpm --dir client-next install",
+    "dev": "concurrently -n server,client -c green,cyan \"pnpm --dir server dev\" \"pnpm --dir client-next dev\"",
+    "dev:server": "pnpm --dir server dev",
+    "dev:client": "pnpm --dir client-next dev",
+    "seed": "pnpm --dir server seed",
+    "build": "pnpm --dir client-next build",
+    "lint": "pnpm --dir server lint && pnpm --dir client-next lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

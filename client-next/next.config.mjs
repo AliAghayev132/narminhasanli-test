@@ -1,5 +1,14 @@
+import { fileURLToPath } from 'node:url'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Pin the workspace root to this package. Without this, Turbopack gets
+  // confused by the root-level package.json (convenience scripts only, not
+  // a workspace) and the pnpm-workspace.yaml sitting right here.
+  turbopack: {
+    root: fileURLToPath(new URL('.', import.meta.url)),
+  },
+
   // Do not advertise the framework in the response headers.
   poweredByHeader: false,
 

@@ -22,24 +22,27 @@ artıq mövcuddur (`authenticate` + `requireRole(['admin'])`), sadəcə UI yoxdu
 
 ## Quick start
 
-### 1. Backend — `server/`
+`server/` və `client-next/` müstəqil paketlərdir (pnpm workspace deyil, hər birinin öz
+`node_modules`/`.env`-i var). Kökdəki `package.json` sadəcə hər ikisini birlikdə işə salmaq
+üçün əlverişli skriptlərdir.
+
+### İlk quraşdırma (bir dəfə)
 
 ```bash
-cd server
-pnpm install
-cp .env.example .env          # MONGODB_URI, secret-lər, SMTP
-pnpm dev                       # nodemon → http://localhost:5000
-pnpm seed                      # bazaya real sayt məzmununu yükləyir (blog/kurs/seans)
+pnpm install                   # kök: concurrently
+pnpm run install:all           # server/ + client-next/ asılılıqları
+cp server/.env.example server/.env               # MONGODB_URI, secret-lər, SMTP
+cp client-next/.env.example client-next/.env.local  # NEXT_PUBLIC_API_URL + NEXT_PUBLIC_SITE_URL
+pnpm run seed                  # bazaya real sayt məzmununu yükləyir (blog/kurs/seans)
 ```
 
-### 2. Frontend — `client-next/`
+### Gündəlik işə salma
 
 ```bash
-cd client-next
-pnpm install
-cp .env.example .env.local     # NEXT_PUBLIC_API_URL + NEXT_PUBLIC_SITE_URL
-pnpm dev                       # next → http://localhost:3000
+pnpm run dev                   # hər ikisini paralel işə salır: :5000 (server) + :3000 (client)
 ```
+
+Yalnız birini işə salmaq istəsən: `pnpm run dev:server` / `pnpm run dev:client`.
 
 ## Sənədlər
 
