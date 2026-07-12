@@ -17,3 +17,4 @@ export { default as nodemailer } from "nodemailer";
 export { default as dotenv } from "dotenv";
 export { default as compression } from "compression";
 export { Server as SocketServer } from "socket.io";
+export { default as validator } from "validator";

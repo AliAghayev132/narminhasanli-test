@@ -1,4 +1,5 @@
 import { Schema, Model, bookingStatus } from "#constants";
+import { validator } from "#lib";
 
 /**
  * Booking model — a reservation/contact request submitted from /elaqe.
@@ -16,6 +17,10 @@ const bookingSchema = new Schema(
       required: true,
       trim: true,
       lowercase: true,
+      validate: {
+        validator: validator.isEmail,
+        message: "Please provide a valid email address",
+      },
     },
     phone: {
       type: String,

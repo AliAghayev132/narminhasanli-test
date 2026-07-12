@@ -64,7 +64,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="az" className={`${lora.variable} ${manrope.variable}`}>
+    <html lang="az" data-scroll-behavior="smooth" className={`${lora.variable} ${manrope.variable}`}>
       <body>
         <Providers>
           <BackgroundFX />
