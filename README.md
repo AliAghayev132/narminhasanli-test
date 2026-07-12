@@ -1,36 +1,48 @@
-# Nərmin Həsənli — şəxsi sayt
+# Nərmin Həsənli
 
-Həyat koçu və ruhani bələdçi Nərmin Həsənlinin çox-səhifəli statik saytı.
-Səhifələr `support.js` runtime-ı ilə render olunur (dizayn alətindən ixrac).
+Həyat koçu və ruhani bələdçi Nərmin Həsənlinin fullstack saytı. `github.com/AliAghayev132/template`
+monorepo-suna (Express + Mongo / Next + Tailwind) əsasən qurulub.
 
-## Struktur
+| Paket | Nədir | Stack |
+|---|---|---|
+| [`server/`](./server) | Express.js REST API + Socket.IO backend | Express 5, Mongoose 9, JWT + OTP auth |
+| [`client-next/`](./client-next) | Next.js App Router (SSR + SEO) | Next 16, React 19, Tailwind 4, RTK Query |
+| [`legacy-static/`](./legacy-static) | Əvvəlki statik export (referans, canlıya getmir) | — |
 
-| Fayl | Səhifə |
-|------|--------|
-| `index.html` | Ana səhifə (hero, haqqında `#about`, seanslar `#sessions`, kurslar `#courses`, bloglar `#blog`, əlaqə `#contact`) |
-| `derslar.html` | Dərslər & Kurslar (siyahı) |
-| `ders.html` | "Öz İşığını Tap" — kurs detalı |
-| `bloglar.html` | Bloglar (siyahı) |
-| `blog.html` | Blog yazısı — "Sükutun içindəki səs" |
-| `elaqe.html` | Əlaqə & Rezervasiya |
-| `support.js` | Səhifələri render edən runtime |
-| `nh-fx.js` | Fon/kursor effektləri (dinamik import olunur) |
-| `design/` | Dizayn referansları — **canlı saytın hissəsi deyil**, istənilən vaxt silinə bilər |
+## Domen resursları
 
-## Lokal işə salmaq
+- **Blog** — `/bloglar`, `/bloglar/[slug]`
+- **Course** ("Dərslər") — `/derslar`, `/derslar/[slug]`
+- **Session** — ev səhifəsindəki "Seanslar" bölməsi
+- **Booking** — `/elaqe` rezervasiya forması
 
-Səhifələr ES-modul (`import('./nh-fx.js')`) istifadə etdiyi üçün birbaşa `file://`
-ilə yox, kiçik bir HTTP server ilə açılmalıdır:
+Faza 1: yalnız public sayt işləkdir (oxu endpoint-ləri + rezervasiya yaratma). Admin panel
+(blog/kurs CRUD, rezervasiya idarəsi) Faza 2-də əlavə olunacaq — backend-də yazma endpoint-ləri
+artıq mövcuddur (`authenticate` + `requireRole(['admin'])`), sadəcə UI yoxdur.
+
+## Quick start
+
+### 1. Backend — `server/`
 
 ```bash
-npx serve .
-# və ya
-python -m http.server 8000
+cd server
+pnpm install
+cp .env.example .env          # MONGODB_URI, secret-lər, SMTP
+pnpm dev                       # nodemon → http://localhost:5000
+pnpm seed                      # bazaya real sayt məzmununu yükləyir (blog/kurs/seans)
 ```
 
-Sonra brauzerdə `http://localhost:8000` ünvanını aç.
+### 2. Frontend — `client-next/`
 
-## Deploy (GitHub Pages)
+```bash
+cd client-next
+pnpm install
+cp .env.example .env.local     # NEXT_PUBLIC_API_URL + NEXT_PUBLIC_SITE_URL
+pnpm dev                       # next → http://localhost:3000
+```
 
-Repo `Settings → Pages` bölməsindən `main` branch / root qovluğu seçilərək
-yayımlana bilər. `.nojekyll` faylı Jekyll emalını söndürür.
+## Sənədlər
+
+- [`docs/superpowers/specs/2026-07-08-fullstack-port-design.md`](./docs/superpowers/specs/2026-07-08-fullstack-port-design.md) — Faza 1 dizayn spesifikasiyası
+- [`server/README.md`](./server/README.md) — backend konvensiyaları
+- [`client-next/README.md`](./client-next/README.md) — frontend konvensiyaları

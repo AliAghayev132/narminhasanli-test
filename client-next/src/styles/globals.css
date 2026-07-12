@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* ============ DESIGN TOKENS ============
+   Warm cream/gold palette ported from the original static export. Fonts are
+   registered as CSS variables by next/font in the root layout. */
+@theme {
+  --color-cream: #f3ede1;
+  --color-cream-soft: #fdfaf3;
+  --color-cream-deep: #ece1cd;
+  --color-gold: #ad8649;
+  --color-gold-light: #c29a55;
+  --color-ink: #312a38;
+  --color-ink-soft: #3a3340;
+  --color-muted: #4c4459;
+  --color-muted-soft: #6a6178;
+
+  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-nh-drift-a: nh-drift-a 22s ease-in-out infinite;
+  --animate-nh-drift-b: nh-drift-b 26s ease-in-out infinite;
+  --animate-nh-breathe: nh-breathe 7s ease-in-out infinite;
+  --animate-nh-float-up: nh-float-up 7s ease-in-out infinite alternate;
+  --animate-nh-spin: nh-spin 24s linear infinite;
+  --animate-nh-scrolldot: nh-scrolldot 2s ease-in-out infinite;
+}
+
+@keyframes nh-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(60px, -50px);
+  }
+}
+
+@keyframes nh-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-70px, 40px);
+  }
+}
+
+@keyframes nh-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes nh-float-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes nh-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nh-scrolldot {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.4;
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-cream);
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(173, 134, 73, 0.25);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8c6a6;
+  border-radius: 9px;
+}
+
+/* Rich-text styling for blog post bodies (stored as an HTML string). */
+.blog-content {
+  font-size: 18px;
+  line-height: 1.95;
+  color: #3a3446;
+}
+
+.blog-content p {
+  margin-bottom: 24px;
+}
+
+.blog-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--color-ink);
+  margin: 40px 0 18px;
+}
+
+.blog-content ul {
+  margin: 0 0 24px;
+  padding-left: 4px;
+  list-style: none;
+}
+
+.blog-content li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.blog-content li::before {
+  content: "✦";
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.blog-content blockquote {
+  margin: 36px 0;
+  padding: 24px 30px;
+  border-left: 3px solid var(--color-gold);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 16px 16px 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
