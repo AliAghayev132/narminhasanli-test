@@ -3,7 +3,7 @@
 import Link from 'next/link'
 
 import { BlogCard } from '@/components/BlogCard'
-import { Loader } from '@/components/Loader'
+import { PageLoader } from '@/components/Loader'
 import { useGetBlogQuery, useGetBlogsQuery } from '@/store/api'
 import { formatDate } from '@/lib/format'
 
@@ -12,7 +12,7 @@ export const BlogDetailContent = ({ slug }) => {
   const { data: relatedRes } = useGetBlogsQuery({ limit: 4 })
   const blog = data?.data?.blog
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <PageLoader />
   if (isError || !blog) {
     return (
       <div className="mx-auto max-w-[600px] px-5 py-40 text-center">

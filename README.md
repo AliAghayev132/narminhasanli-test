@@ -44,6 +44,24 @@ pnpm run dev                   # hər ikisini paralel işə salır: :5000 (serve
 
 Yalnız birini işə salmaq istəsən: `pnpm run dev:server` / `pnpm run dev:client`.
 
+## Deploy (CD)
+
+`.github/workflows/deploy-server.yml` və `deploy-client.yml` push-da `main`-ə SSH ilə VPS-ə
+qoşulub PM2 ilə restart edir (yalnız dəyişən paketin workflow-u işə düşür, `paths:` filtri ilə).
+Server → port `3102` (`narminhasanli-server`), Client → port `3103` (`narminhasanli-client`).
+
+**Bir dəfəlik VPS quraşdırması (workflow-lar bunu etmir):**
+1. `nvm`, `pnpm`, `pm2` VPS-də qlobal quraşdırılmış olmalıdır.
+2. Monorepo-nu bir dəfə klonla: `git clone ... /var/www/narminhasanli` (workflow-lardakı
+   `REPO_DIR`-lə üst-üstə düşməlidir — fərqli yol istifadə edirsənsə, hər iki YAML-da dəyiş).
+3. `/var/www/narminhasanli/server/.env` və `/var/www/narminhasanli/client-next/.env.local`
+   (və ya `.env.production`) fayllarını **əl ilə** yarat — production `MONGODB_URI`,
+   `ACCESS_SECRET_KEY`/`REFRESH_SECRET_KEY`/`ENCRYPTION_KEY` (güclü, təsadüfi dəyərlər),
+   `CLIENT_URL` (client-in public URL-i, server-in CORS whitelist-i üçün), `DOMAIN`,
+   `NEXT_PUBLIC_API_URL` (server-in public URL-i) və `NEXT_PUBLIC_SITE_URL` düzgün doldurulmalıdır.
+   Bunlar `.gitignore`-dadır, heç vaxt commit olunmur.
+4. GitHub repo → Settings → Secrets: `HOST`, `USERNAME`, `SECRET_KEY` (SSH açarı).
+
 ## Sənədlər
 
 - [`docs/superpowers/specs/2026-07-08-fullstack-port-design.md`](./docs/superpowers/specs/2026-07-08-fullstack-port-design.md) — Faza 1 dizayn spesifikasiyası

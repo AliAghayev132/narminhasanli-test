@@ -1,7 +1,7 @@
 'use client'
 
 import { BookingForm } from '@/components/BookingForm'
-import { Loader, ErrorNote } from '@/components/Loader'
+import { PageLoader, ErrorNote } from '@/components/Loader'
 import { useGetSessionsQuery } from '@/store/api'
 
 const CHANNELS = [
@@ -58,7 +58,7 @@ export const ContactContent = () => {
               style={{ background: 'radial-gradient(circle,rgba(160,120,56,.14),transparent 70%)' }}
             />
             <div className="relative">
-              {isLoading && <Loader />}
+              {isLoading && <PageLoader />}
               {isError && <ErrorNote />}
               {!isLoading && !isError && (
                 <BookingForm

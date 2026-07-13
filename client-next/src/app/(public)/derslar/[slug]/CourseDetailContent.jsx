@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { Loader } from '@/components/Loader'
+import { PageLoader } from '@/components/Loader'
 import { useGetCourseQuery } from '@/store/api'
 import { formatPrice } from '@/lib/format'
 
@@ -10,7 +10,7 @@ export const CourseDetailContent = ({ slug }) => {
   const { data, isLoading, isError } = useGetCourseQuery(slug)
   const course = data?.data?.course
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <PageLoader />
   if (isError || !course) {
     return (
       <div className="mx-auto max-w-[600px] px-5 py-40 text-center">

@@ -7,7 +7,7 @@ import { CourseCard } from '@/components/CourseCard'
 import { BlogCard } from '@/components/BlogCard'
 import { BookingForm } from '@/components/BookingForm'
 import { JsonLd } from '@/components/JsonLd'
-import { Loader, ErrorNote } from '@/components/Loader'
+import { CardSkeletonGrid, ErrorNote } from '@/components/Loader'
 import { useGetSessionsQuery, useGetCoursesQuery, useGetBlogsQuery } from '@/store/api'
 import { formatPrice, toRoman } from '@/lib/format'
 import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION } from '@/lib/seo'
@@ -140,7 +140,7 @@ export const HomeContent = () => {
             Hər seans tamamilə sənə həsr olunur — təhlükəsiz, qınamasız və sakit bir məkanda.
           </p>
         </div>
-        {sessionsLoading && <Loader />}
+        {sessionsLoading && <CardSkeletonGrid variant="session" count={3} />}
         {sessionsError && <ErrorNote />}
         {!sessionsLoading && !sessionsError && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -181,7 +181,7 @@ export const HomeContent = () => {
               Öz ritmində irəlilə — addım-addım, nəfəs-nəfəs.
             </p>
           </div>
-          {coursesLoading && <Loader />}
+          {coursesLoading && <CardSkeletonGrid variant="course" count={3} />}
           {coursesError && <ErrorNote />}
           {!coursesLoading && !coursesError && (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -209,7 +209,7 @@ export const HomeContent = () => {
             Hamısına bax
           </Link>
         </div>
-        {blogsLoading && <Loader />}
+        {blogsLoading && <CardSkeletonGrid variant="blog" count={3} />}
         {blogsError && <ErrorNote />}
         {!blogsLoading && !blogsError && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

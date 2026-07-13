@@ -3,7 +3,7 @@
 import Link from 'next/link'
 
 import { CourseCard } from '@/components/CourseCard'
-import { Loader, ErrorNote } from '@/components/Loader'
+import { CardSkeletonGrid, ErrorNote } from '@/components/Loader'
 import { useGetCoursesQuery } from '@/store/api'
 
 const STEPS = [
@@ -32,7 +32,7 @@ export const CoursesListContent = () => {
       </header>
 
       <section className="mx-auto max-w-[1080px] px-5 pt-8 pb-14 sm:px-10">
-        {isLoading && <Loader />}
+        {isLoading && <CardSkeletonGrid variant="course" count={4} columns="md:grid-cols-2" />}
         {isError && <ErrorNote />}
         {!isLoading && !isError && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

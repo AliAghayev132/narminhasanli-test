@@ -3,7 +3,7 @@
 import Link from 'next/link'
 
 import { BlogCard } from '@/components/BlogCard'
-import { Loader, ErrorNote } from '@/components/Loader'
+import { CardSkeletonGrid, ErrorNote } from '@/components/Loader'
 import { useGetBlogsQuery } from '@/store/api'
 import { formatDate } from '@/lib/format'
 
@@ -27,7 +27,11 @@ export const BlogsListContent = () => {
         </p>
       </header>
 
-      {isLoading && <Loader />}
+      {isLoading && (
+        <div className="mx-auto max-w-[1140px] px-5 pt-2.5 pb-[clamp(50px,8vw,90px)] sm:px-10">
+          <CardSkeletonGrid variant="blog" count={6} columns="sm:grid-cols-2 md:grid-cols-3" />
+        </div>
+      )}
       {isError && <ErrorNote />}
 
       {!isLoading && !isError && (
